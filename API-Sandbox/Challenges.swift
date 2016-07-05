@@ -64,7 +64,7 @@ internal func exerciseTwo() {
     
     
     let topMovieData = moviesData["feed"]["entry"][0]
-    let topMovie = Movie(json: topMovieData)
+    let topMovie = Music(json: topMovieData)
     
     // Uncomment this print statement when you are ready to check your code!
     
@@ -93,7 +93,7 @@ internal func exerciseThree() {
      Figure out a way to turn the allMoviesData array into Movie structs!
      
      */
-    var allMovies: [Movie] = []
+    var allMovies: [Music] = []
     
     
     

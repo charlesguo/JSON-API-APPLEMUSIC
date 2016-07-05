@@ -14,37 +14,59 @@ import AlamofireNetworkActivityIndicator
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var movieTitleLabel: UILabel!
-    @IBOutlet weak var rightsOwnerLabel: UILabel!
-    @IBOutlet weak var releaseDateLabel: UILabel!
+//    @IBOutlet weak var musicTitleLabel: UILabel!
+    @IBOutlet weak var musicQueryTextField: UITextField!
+
+    @IBOutlet weak var musicTitleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     
+    var musicRandom: Music?
+    var queryString: String?
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        exerciseOne()
-        exerciseTwo()
-        exerciseThree()
+//        exerciseOne()
+//        exerciseTwo()
+//        exerciseThree()
         
-        let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
-        // This code will call the iTunes top 25 movies endpoint listed above
-        Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
-            switch response.result {
-            case .Success:
-                if let value = response.result.value {
-                    let json = JSON(value)
-                    
-                    // Do what you need to with JSON here!
-                    // The rest is all boiler plate code you'll use for API requests
-                    
-                    
-                }
-            case .Failure(let error):
-                print(error)
-            }
-        }
+//        queryString = musicQueryTextField.text ?? ""
+//        
+//        let apiToContact = "https://itunes.apple.com/search"
+//        let parameters = ["term": String(queryString), "media": "music"]
+//        
+//        Alamofire.request(.GET, apiToContact, parameters: parameters) .validate().responseJSON() { response in
+//                switch response.result {
+//                case .Success:
+//                    if let value = response.result.value {
+//                        let json = JSON(value)
+//                    
+//                    // Do what you need to with JSON here!
+//                    // The rest is all boiler plate code you'll use for API requests
+//                    
+//                    // modify based on the structure of the JSON file
+//                    let reqMusicData = json["results"].arrayValue
+//                    
+//                    let iSelect = Int(arc4random_uniform(UInt32(reqMusicData.count)))
+//                    
+//                    self.musicRandom = Music(json: reqMusicData[iSelect])
+//                    print(self.musicRandom)
+//                    
+//                    self.musicTitleLabel.text = self.musicRandom?.name
+////                    self.rightsOwnerLabel.text = self.musicRandom?.rightsOwner
+////                    self.releaseDateLabel.text = self.musicRandom?.releaseDate
+//                    self.priceLabel.text = String(format:"%.2f", (self.musicRandom?.price)!)
+//                    
+//                    self.loadPoster((self.musicRandom?.poster)!)
+//                    
+//                }
+//            case .Failure(let error):
+//                print(error)
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,8 +80,48 @@ class ViewController: UIViewController {
     }
     
     @IBAction func viewOniTunesPressed(sender: AnyObject) {
-        
+        print(musicRandom?.link)
+        UIApplication.sharedApplication().openURL(NSURL(string: (musicRandom?.link)!)!)
     }
-    
+//
+    @IBAction func submitQueryPressed(sender: AnyObject) {
+        queryString = musicQueryTextField.text ?? ""
+        
+        
+        print(queryString)
+        
+        let apiToContact = "https://itunes.apple.com/search"
+        let parameters = ["term": queryString!, "media": "music"]
+        
+        Alamofire.request(.GET, apiToContact, parameters: parameters) .validate().responseJSON() { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    
+                    // Do what you need to with JSON here!
+                    // The rest is all boiler plate code you'll use for API requests
+                    
+                    // modify based on the structure of the JSON file
+                    let reqMusicData = json["results"].arrayValue
+                    
+                    let iSelect = Int(arc4random_uniform(UInt32(reqMusicData.count)))
+                    
+                    self.musicRandom = Music(json: reqMusicData[iSelect])
+                    print(self.musicRandom)
+                    
+                    self.musicTitleLabel.text = self.musicRandom?.name
+                    //                    self.rightsOwnerLabel.text = self.musicRandom?.rightsOwner
+                    //                    self.releaseDateLabel.text = self.musicRandom?.releaseDate
+                    self.priceLabel.text = String(format:"%.2f", (self.musicRandom?.price)!)
+                    
+                    self.loadPoster((self.musicRandom?.poster)!)
+                    
+                }
+            case .Failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 

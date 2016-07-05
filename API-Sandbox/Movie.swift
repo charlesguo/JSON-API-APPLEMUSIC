@@ -9,18 +9,16 @@
 import Foundation
 import SwiftyJSON
 
-struct Movie {
+struct Music {
     let name: String
-    let rightsOwner: String
     let price: Double
     let link: String
-    let releaseDate: String
+    let poster: String
     
     init(json: JSON) {
-        self.name = ""
-        self.rightsOwner = ""
-        self.price = 0
-        self.link = ""
-        self.releaseDate = ""
+        self.name = json["collectionName"].stringValue
+        self.price = json["collectionPrice"].doubleValue
+        self.link = json["collectionViewUrl"].stringValue
+        self.poster = json["artworkUrl100"].stringValue
     }
 }

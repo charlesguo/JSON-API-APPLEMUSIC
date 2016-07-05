@@ -20,10 +20,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lg8-f5-yNi">
-                                <rect key="frame" x="40" y="60" width="520" height="330"/>
+                                <rect key="frame" x="40" y="60" width="520" height="350"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Ux-HI7">
-                                        <rect key="frame" x="218" y="0.0" width="84" height="20"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZv-nN-OfJ">
+                                        <rect key="frame" x="110" y="0.0" width="300" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="f5u-8F-4bS"/>
+                                            <constraint firstAttribute="width" constant="300" id="pIC-In-Vhc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgq-AC-fb7">
+                                        <rect key="frame" x="213" y="40" width="94" height="30"/>
+                                        <state key="normal" title="Submit Query"/>
+                                        <connections>
+                                            <action selector="submitQueryPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bfa-2C-MAR"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Music Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Ux-HI7">
+                                        <rect key="frame" x="219" y="80" width="84" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="YnN-bf-hOJ"/>
                                         </constraints>
@@ -31,26 +47,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rights Owner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmT-q5-Xb5">
-                                        <rect key="frame" x="208" y="30" width="104" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="n6b-2w-raZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIc-qC-hJx">
-                                        <rect key="frame" x="210" y="60" width="101" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="zUq-Wa-IOJ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZ8-j6-gmu">
-                                        <rect key="frame" x="241" y="90" width="39" height="20"/>
+                                        <rect key="frame" x="241" y="110" width="39" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="udQ-K5-Zge"/>
                                         </constraints>
@@ -59,7 +57,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-Mt-Pyf">
-                                        <rect key="frame" x="175" y="120" width="170" height="170"/>
+                                        <rect key="frame" x="175" y="140" width="170" height="170"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="170" id="8qb-Xz-utm"/>
                                             <constraint firstAttribute="width" secondItem="E5c-Mt-Pyf" secondAttribute="height" multiplier="1:1" id="ab3-cq-RAf"/>
@@ -67,7 +65,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NG-Ze-OgS">
-                                        <rect key="frame" x="209" y="300" width="103" height="30"/>
+                                        <rect key="frame" x="209" y="320" width="103" height="30"/>
                                         <state key="normal" title="View on iTunes"/>
                                         <connections>
                                             <action selector="viewOniTunesPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="giq-ny-Gff"/>
@@ -85,11 +83,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="movieTitleLabel" destination="E9K-Ux-HI7" id="Fwn-ht-fJj"/>
+                        <outlet property="musicQueryTextField" destination="YZv-nN-OfJ" id="poz-fA-ZM1"/>
+                        <outlet property="musicTitleLabel" destination="E9K-Ux-HI7" id="l8t-0C-Abd"/>
                         <outlet property="posterImageView" destination="E5c-Mt-Pyf" id="VxY-Kb-919"/>
                         <outlet property="priceLabel" destination="KZ8-j6-gmu" id="oAq-M1-Wd3"/>
-                        <outlet property="releaseDateLabel" destination="YIc-qC-hJx" id="0Gd-cL-kKb"/>
-                        <outlet property="rightsOwnerLabel" destination="KmT-q5-Xb5" id="U0j-Cn-ZAn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
